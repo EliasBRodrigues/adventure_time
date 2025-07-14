@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmo75rb3l26o7"]
+
+[ext_resource type="Script" uid="uid://dc5f2ni60rl83" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dvydyrp6gcc35" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://b1qc380670aeq" path="res://img/bg/BG/BG.png" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://d27luty284xa" path="res://floor.tscn" id="4_lquwl"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+mob_scene = ExtResource("1_ig7tw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 638.0
+texture = ExtResource("3_1bvp3")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="Floor" parent="." instance=ExtResource("4_lquwl")]
+position = Vector2(258, 513)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(162, 450)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(240, 450)
+
+[connection signal="hit" from="Player" to="." method="new_game"]
+[connection signal="hit" from="Player" to="." method="game_over"]

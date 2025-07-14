@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d27luty284xa"]
+
+[ext_resource type="Texture2D" uid="uid://dgie8mk7m5b48" path="res://img/bg/Tiles/2.png" id="1_oj3tl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj3tl"]
+size = Vector2(1150.25, 128)
+
+[node name="Floor" type="Area2D"]
+position = Vector2(257, 247)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(318.875, 68)
+shape = SubResource("RectangleShape2D_oj3tl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -257.0
+offset_top = 4.0
+offset_right = 895.0
+offset_bottom = 132.0
+texture = ExtResource("1_oj3tl")
+stretch_mode = 1
