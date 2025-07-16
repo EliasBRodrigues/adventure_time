@@ -11,19 +11,16 @@ mob_scene = ExtResource("1_ig7tw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1153.0
-offset_bottom = 638.0
+offset_bottom = 652.0
 texture = ExtResource("3_1bvp3")
 expand_mode = 2
 stretch_mode = 1
 
 [node name="Floor" parent="." instance=ExtResource("4_lquwl")]
-position = Vector2(258, 513)
+position = Vector2(240, 527)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(162, 450)
+position = Vector2(277, 450)
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(240, 450)
-
-[connection signal="hit" from="Player" to="." method="new_game"]
-[connection signal="hit" from="Player" to="." method="game_over"]

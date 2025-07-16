@@ -1,52 +1,41 @@
-extends Area2D
+extends CharacterBody2D
 
-signal hit
+#signal hit
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	screen_size = get_viewport_rect().size
-	# funcao para esconder personagem principal e adicionar outros componentes
-	# como menu principal
-	hide()
+@export var speed = 400 # Velocidade do personagem
+var screen_size # Tamanho da tela
+var jump_speed = -400.0
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var velocity = Vector2.ZERO # The player's movement vector.
+func _process(delta):
+	_actions()
+	_attack()
+	_jumping(delta)
+	move_and_slide()
+
+func _actions() -> void:
+	velocity.x = 0 # Só zera o x, não todo o vetor!
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		velocity.x += speed
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	#if Input.is_action_pressed("move_down"):
-		#velocity.y += 1
-	#if Input.is_action_pressed("move_up"):
-		#velocity.y -= 1
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play("walk")
-	else:
-		$AnimatedSprite2D.play("default")
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+		velocity.x -= speed
 	
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_v = false
+		$AnimatedSprite2D.play("walk")
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-	#elif velocity.y != 0:
-		#$AnimatedSprite2D.animation = "up"
-		#$AnimatedSprite2D.flip_v = velocity.y > 0
+	else:
+		$AnimatedSprite2D.play("default")
 
+func _jumping(delta):
+	velocity.y += gravity * delta
+	if Input.is_action_just_pressed("move_up") and is_on_floor():
+		velocity.y = jump_speed
 
-func _on_body_entered(body: Node2D) -> void:
-	hide() # Player disappears after being hit.
-	hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred("disabled", true)
-	
+func _attack():
+	if Input.is_action_pressed("attack"):
+		$AnimatedSprite2D.play("attack")
+
 func start(pos):
 	position = pos
 	show()
