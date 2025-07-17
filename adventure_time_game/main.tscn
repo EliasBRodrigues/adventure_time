@@ -10,7 +10,7 @@ script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("1_ig7tw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1153.0
+offset_right = 2120.0
 offset_bottom = 652.0
 texture = ExtResource("3_1bvp3")
 expand_mode = 2

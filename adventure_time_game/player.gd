@@ -10,7 +10,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _process(delta):
 	_actions()
-	_attack()
 	_jumping(delta)
 	move_and_slide()
 
@@ -24,6 +23,8 @@ func _actions() -> void:
 	if velocity.x != 0:
 		$AnimatedSprite2D.play("walk")
 		$AnimatedSprite2D.flip_h = velocity.x < 0
+	elif Input.is_action_pressed("attacks"):
+		_attack()
 	else:
 		$AnimatedSprite2D.play("default")
 
@@ -33,8 +34,7 @@ func _jumping(delta):
 		velocity.y = jump_speed
 
 func _attack():
-	if Input.is_action_pressed("attack"):
-		$AnimatedSprite2D.play("attack")
+	$AnimatedSprite2D.play("attack")
 
 func start(pos):
 	position = pos
