@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://t14fkb0mv5j8"]
+
+[ext_resource type="Texture2D" uid="uid://b1qc380670aeq" path="res://img/bg/BG/BG.png" id="1_oabld"]
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(500, 0)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(1100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(611, 469.5)
+scale = Vector2(1.262, 1.628)
+texture = ExtResource("1_oabld")
