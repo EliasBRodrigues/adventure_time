@@ -167,12 +167,16 @@ position = Vector2(555, 533)
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4, 15)
+position = Vector2(-60, -148)
 scale = Vector2(7, 6.186)
 sprite_frames = SubResource("SpriteFrames_606se")
-animation = &"attack"
+animation = &"walk"
+frame_progress = 0.951667
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.5, 10)
+position = Vector2(-77, -144)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_u1c27")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-58, -156)
