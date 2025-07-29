@@ -10,12 +10,12 @@ script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("1_ig7tw")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(240, 450)
+position = Vector2(529, 261)
 
 [node name="Parallax" parent="." instance=ExtResource("3_1bvp3")]
 
 [node name="Floor" parent="." instance=ExtResource("4_lquwl")]
-position = Vector2(240, 283)
+position = Vector2(257, 352)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(554, 530)
+position = Vector2(529, 463)

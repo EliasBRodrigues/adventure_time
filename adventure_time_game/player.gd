@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var speed = 400 # Velocidade do personagem
 var screen_size # Tamanho da tela
-var jump_speed = -400.0
+var jump_speed = -450.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 

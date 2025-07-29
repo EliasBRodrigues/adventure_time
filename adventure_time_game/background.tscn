@@ -5,11 +5,11 @@
 [node name="Parallax" type="Node2D"]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_times = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture_repeat = 2
-position = Vector2(1754, 378)
+position = Vector2(1803, 427.5)
+scale = Vector2(1, 1.11067)
 texture = ExtResource("1_oabld")
 region_enabled = true
-region_rect = Rect2(0, 0, 3500, 750)
+region_rect = Rect2(0, 0, 3600, 750)
