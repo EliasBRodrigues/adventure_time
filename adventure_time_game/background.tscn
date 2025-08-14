@@ -8,8 +8,8 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture_repeat = 2
-position = Vector2(1803, 427.5)
-scale = Vector2(1, 1.11067)
+position = Vector2(1801.5, 427.5)
+scale = Vector2(1.00083, 1.11067)
 texture = ExtResource("1_oabld")
 region_enabled = true
 region_rect = Rect2(0, 0, 3600, 750)

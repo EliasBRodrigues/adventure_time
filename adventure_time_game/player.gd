@@ -1,12 +1,21 @@
 extends CharacterBody2D
 
+class_name Player
+
+#signal health
 #signal hit
 
 @export var speed = 400 # Velocidade do personagem
 var screen_size # Tamanho da tela
-var jump_speed = -450.0
+var jump_speed = -650.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@export var maxHealth = 30
+@onready var currentHealth: int = maxHealth
+
+@export var knockbackPower: int = 500
+
+var isHurt: bool = false
 
 func _process(delta):
 	_actions()
@@ -40,3 +49,19 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+	
+#func knockback(enemyVelocity: Vector2):
+	#var knockDirection = (enemyVelocity - velocity).normalized() * knockbackPower
+	#velocity = knockDirection
+	#move_and_slide()
+	#
+#func hurtByEnemey(area):
+	#currentHealth -= 10
+	#if currentHealth < 0:
+		#currentHealth = maxHealth
+	#isHurt = true
+	#health.emit()
+	#
+	##knockbackPower(area.get_parent().velocity)
+	#$AnimatedSprite2D.play()
+	

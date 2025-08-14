@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d27luty284xa"]
+[gd_scene load_steps=14 format=4 uid="uid://d27luty284xa"]
 
 [ext_resource type="Texture2D" uid="uid://dgie8mk7m5b48" path="res://img/bg/Tiles/2.png" id="1_oj3tl"]
 [ext_resource type="Texture2D" uid="uid://boeogj82kcjl6" path="res://img/bg/Tiles/1.png" id="2_cgngl"]
@@ -155,6 +155,9 @@ sources/0 = SubResource("TileSetAtlasSource_qn07e")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn07e"]
 size = Vector2(21, 53)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgmes"]
+size = Vector2(224, 760)
+
 [node name="Floor" type="StaticBody2D"]
 position = Vector2(257, 247)
 
@@ -201,3 +204,7 @@ texture = ExtResource("4_dgmes")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(916, 336)
 texture = ExtResource("5_36s4f")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-364, 117)
+shape = SubResource("RectangleShape2D_dgmes")
